@@ -10,7 +10,8 @@
         android:orientation="vertical"
         android:background="#ffffff"
         android:layout_margin="10dp"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:id="@+id/linearLayout">
 
 
         <TextView
@@ -28,91 +29,25 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <NumberPicker
+                android:id="@+id/number_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Up"
-                    android:id="@+id/button_hour_up_setting" />
+            <NumberPicker
+                android:id="@+id/number_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="00"
-                    android:textSize="40sp"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:id="@+id/edit_hour_setting" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Down"
-                    android:id="@+id/button_hour_down_setting" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Up"
-                    android:id="@+id/button_minute_up_setting" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="00"
-                    android:textSize="40sp"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:id="@+id/edit_minute_setting" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Down"
-                    android:id="@+id/button_minute_down_setting" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Up"
-                    android:id="@+id/button_sec_up_setting" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="00"
-                    android:textSize="40sp"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:id="@+id/edit_sec_setting" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Down"
-                    android:id="@+id/button_sec_down_setting" />
-            </LinearLayout>
+            <NumberPicker
+                android:id="@+id/number_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <LinearLayout
@@ -137,5 +72,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
 
 </RelativeLayout>

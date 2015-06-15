@@ -64,6 +64,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    private boolean isStarted = false;
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -88,31 +89,42 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             if(timer != null) {
                 timer.onFinish();
                 timer.cancel();
-                timer = null;
+                millisec = 0;
+
+                btnStart.setText(getResources().getString(R.string.start));
             }
 
         } else if (id == R.id.button_start_time) {
-            timer = new CountDownTimer(millisec, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    long hour = (millisUntilFinished / (1000 * 60 * 60)) % 24;
-                    long minute = (millisUntilFinished / (1000 * 60)) % 60;
-                    long second = (millisUntilFinished / 1000) % 60;
+            if(isStarted) {
+                btnStart.setText(getResources().getString(R.string.start));
+                isStarted = false;
+                timer.cancel();
 
-                    String time = String.format("%02d", hour) + ":"
-                            + String.format("%02d", minute) + ":"
-                            + String.format("%02d", second);
+            } else {
+                btnStart.setText(getResources().getString(R.string.pause));
+                isStarted = true;
+                timer = new CountDownTimer(millisec, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        millisec = millisUntilFinished;
+                        long hour = (millisUntilFinished / (1000 * 60 * 60)) % 24;
+                        long minute = (millisUntilFinished / (1000 * 60)) % 60;
+                        long second = (millisUntilFinished / 1000) % 60;
 
-                    tvTime.setText(time);
-                }
+                        String time = String.format("%02d", hour) + ":"
+                                + String.format("%02d", minute) + ":"
+                                + String.format("%02d", second);
 
-                @Override
-                public void onFinish() {
-                    //TODO notification
-                    tvTime.setText("done!");
-                }
-            }.start();
+                        tvTime.setText(time);
+                    }
 
+                    @Override
+                    public void onFinish() {
+                        //TODO notification
+                        tvTime.setText(getResources().getString(R.string.default_time));
+                    }
+                }.start();
+            }
         }
     }
 

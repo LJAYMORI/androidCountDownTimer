@@ -19,7 +19,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Time Setting"
+        android:text="@string/time_setting"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:id="@+id/button_time_setting" />
@@ -34,14 +34,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stop"
+            android:text="@string/stop"
             android:layout_weight="40"
             android:id="@+id/button_stop_time" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start"
+            android:text="@string/start"
             android:layout_weight="40"
             android:id="@+id/button_start_time" />
     </LinearLayout>
