@@ -69,6 +69,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.button_time_setting) {
+            if(isStarted) {
+                pauseTimer();
+            }
 
             StringTokenizer tokenizer = new StringTokenizer(tvTime.getText().toString(), ":");
             String hour = tokenizer.nextToken();
@@ -96,36 +99,45 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         } else if (id == R.id.button_start_time) {
             if(isStarted) {
-                btnStart.setText(getResources().getString(R.string.start));
-                isStarted = false;
-                timer.cancel();
+                pauseTimer();
 
             } else {
-                btnStart.setText(getResources().getString(R.string.pause));
-                isStarted = true;
-                timer = new CountDownTimer(millisec, 1000) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        millisec = millisUntilFinished;
-                        long hour = (millisUntilFinished / (1000 * 60 * 60)) % 24;
-                        long minute = (millisUntilFinished / (1000 * 60)) % 60;
-                        long second = (millisUntilFinished / 1000) % 60;
+                startTimer();
 
-                        String time = String.format("%02d", hour) + ":"
-                                + String.format("%02d", minute) + ":"
-                                + String.format("%02d", second);
-
-                        tvTime.setText(time);
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        //TODO notification
-                        tvTime.setText(getResources().getString(R.string.default_time));
-                    }
-                }.start();
             }
         }
+    }
+
+    private void pauseTimer() {
+        btnStart.setText(getResources().getString(R.string.start));
+        isStarted = false;
+        timer.cancel();
+    }
+
+    private void startTimer() {
+        btnStart.setText(getResources().getString(R.string.pause));
+        isStarted = true;
+        timer = new CountDownTimer(millisec, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                millisec = millisUntilFinished;
+                long hour = (millisUntilFinished / (1000 * 60 * 60)) % 24;
+                long minute = (millisUntilFinished / (1000 * 60)) % 60;
+                long second = (millisUntilFinished / 1000) % 60;
+
+                String time = String.format("%02d", hour) + ":"
+                        + String.format("%02d", minute) + ":"
+                        + String.format("%02d", second);
+
+                tvTime.setText(time);
+            }
+
+            @Override
+            public void onFinish() {
+                //TODO notification
+                tvTime.setText(getResources().getString(R.string.default_time));
+            }
+        }.start();
     }
 
     public void setTime(int h, int m, int s) {
