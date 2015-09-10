@@ -5,70 +5,112 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#ffffff"
         android:layout_margin="10dp"
-        android:padding="12dp"
-        android:id="@+id/linearLayout">
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:padding="12dp">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:text="Set Timer"
             android:textColor="#000000"
-            android:text="Set Timer"/>
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#008800"/>
+            android:background="#000088" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <NumberPicker
-                android:id="@+id/number_hour"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp" />
+                android:orientation="vertical">
 
-            <NumberPicker
-                android:id="@+id/number_minute"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/hour"
+                    android:textStyle="bold" />
+
+                <NumberPicker
+                    android:id="@+id/number_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp" />
+                android:orientation="vertical">
 
-            <NumberPicker
-                android:id="@+id/number_second"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/minute"
+                    android:textStyle="bold" />
+
+                <NumberPicker
+                    android:id="@+id/number_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/sec"
+                    android:textStyle="bold" />
+
+                <NumberPicker
+                    android:id="@+id/number_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Cancel"
                 android:id="@+id/button_cancel_setting"
-                android:layout_weight="1" />
-
-            <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="OK"
+                android:layout_weight="1"
+                android:text="Cancel" />
+
+            <Button
                 android:id="@+id/button_ok_setting"
-                android:layout_weight="1" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="OK" />
         </LinearLayout>
 
     </LinearLayout>

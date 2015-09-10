@@ -13,9 +13,11 @@ import android.widget.NumberPicker;
 
 public class TimeSettingDialog extends DialogFragment implements View.OnClickListener {
 
-    private Button btnCancel, btnOk;
-    private NumberPicker pickerHour, pickerMin, pickerSec;
+    public static final String HOUR = "hour";
+    public static final String MINUTE = "minute";
+    public static final String SECOND = "second";
 
+    private NumberPicker pickerHour, pickerMin, pickerSec;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class TimeSettingDialog extends DialogFragment implements View.OnClickLis
         // Transparent background
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        // Set contentView
         dialog.setContentView(R.layout.dialog_setting_time);
 
         init(dialog);
@@ -37,8 +40,10 @@ public class TimeSettingDialog extends DialogFragment implements View.OnClickLis
         return dialog;
     }
 
+    /**
+     * 셋팅 다이얼로그를 초기화 합니다.
+     */
     private void init(Dialog d) {
-
         pickerHour = (NumberPicker) d.findViewById(R.id.number_hour);
         pickerMin = (NumberPicker) d.findViewById(R.id.number_minute);
         pickerSec = (NumberPicker) d.findViewById(R.id.number_second);
@@ -50,20 +55,15 @@ public class TimeSettingDialog extends DialogFragment implements View.OnClickLis
         pickerSec.setMinValue(0);
         pickerSec.setMaxValue(59);
 
-        pickerHour.setValue(Integer.parseInt(getArguments().getString(MainActivity.HOUR)));
-        pickerMin.setValue(Integer.parseInt(getArguments().getString(MainActivity.MINUTE)));
-        pickerSec.setValue(Integer.parseInt(getArguments().getString(MainActivity.SECOND)));
+        pickerHour.setValue(Integer.parseInt(getArguments().getString(HOUR)));
+        pickerMin.setValue(Integer.parseInt(getArguments().getString(MINUTE)));
+        pickerSec.setValue(Integer.parseInt(getArguments().getString(SECOND)));
 
-        btnCancel = (Button) d.findViewById(R.id.button_cancel_setting);
-        btnOk = (Button) d.findViewById(R.id.button_ok_setting);
+        Button btnCancel = (Button) d.findViewById(R.id.button_cancel_setting);
+        Button btnOk = (Button) d.findViewById(R.id.button_ok_setting);
 
         btnCancel.setOnClickListener(this);
         btnOk.setOnClickListener(this);
-    }
-
-    @Override
-    public void dismiss() {
-        super.dismiss();
     }
 
     @Override
