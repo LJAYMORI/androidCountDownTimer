@@ -72,10 +72,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 타이머 다이얼로그를 띄웁니다.
      */
     private void showTimerDialog() {
+        // 카운트다운이 진행중이면 중지후 다이얼로그를 띄웁니다.
         if(isStarted) {
             pauseTimer();
         }
 
+        // 진행된 시, 분, 초를 다이얼로그에 전달합니다.
         StringTokenizer tokenizer = new StringTokenizer(tvTime.getText().toString(), ":");
         String hour = tokenizer.nextToken();
         String minute = tokenizer.nextToken();
@@ -86,9 +88,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         args.putString(TimeSettingDialog.MINUTE, minute);
         args.putString(TimeSettingDialog.SECOND, second);
 
+
         TimeSettingDialog dialog = new TimeSettingDialog();
+        // 시, 분, 초 값을 전달합니다.
         dialog.setArguments(args);
+
+        // 기기의 취소버튼을 눌러도 다이얼로그가 종료되지 않도록 설정합니다.
         dialog.setCancelable(false);
+
+        // 셋팅된 다이얼로그를 띄웁니다.
         dialog.show(getFragmentManager(), DIALOG_TIME_SETTING);
     }
 
@@ -120,10 +128,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void startTimer() {
         btnStart.setText(getResources().getString(R.string.pause));
         isStarted = true;
+
+        // 타이머를 사용할 수 있도록 클래스를 초기화 합니다.
+        // @param millisec - 카운트 다운 할 총 milli seconds 의 총 량
+        // @param 1000 - 카운트 다운 빈도, milli seconds의 단위로 1초
         timer = new CountDownTimer(millisec, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 millisec = millisUntilFinished;
+
+                // 남은 milli seconds를 각각 시, 분, 초로 변환합니다.
                 long hour = (millisUntilFinished / (1000 * 60 * 60)) % 24;
                 long minute = (millisUntilFinished / (1000 * 60)) % 60;
                 long second = (millisUntilFinished / 1000) % 60;

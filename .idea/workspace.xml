@@ -32,13 +32,13 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ljaymori/countdowntimer/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.4080267">
-              <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
+            <state vertical-scroll-proportion="2.8093646">
+              <caret line="146" column="35" selection-start-line="146" selection-start-column="35" selection-end-line="146" selection-end-column="35" />
               <folding>
-                <element signature="e#2761#2801#0" expanded="true" />
-                <element signature="e#2913#2953#0" expanded="true" />
-                <element signature="e#3106#3146#0" expanded="true" />
-                <element signature="e#4023#4070#0" expanded="true" />
+                <element signature="e#2948#2988#0" expanded="true" />
+                <element signature="e#3100#3140#0" expanded="true" />
+                <element signature="e#3293#3333#0" expanded="true" />
+                <element signature="e#4426#4473#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,6 +72,10 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="D:\Develop\ljay.jks" />
+    <option name="KEY_ALIAS" value="mori" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1405,9 +1409,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_setting_time.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ljaymori/countdowntimer/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ljaymori/countdowntimer/TimeSettingDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ljaymori/countdowntimer/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -1558,6 +1562,10 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="430038147134303d" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="ExportApk.ApkPath" value="C:\Users\iooi\Desktop" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.BuildType" value="release" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1804,13 +1812,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ljaymori/countdowntimer/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.4080267">
-          <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
+        <state vertical-scroll-proportion="2.8093646">
+          <caret line="146" column="35" selection-start-line="146" selection-start-column="35" selection-end-line="146" selection-end-column="35" />
           <folding>
-            <element signature="e#2761#2801#0" expanded="true" />
-            <element signature="e#2913#2953#0" expanded="true" />
-            <element signature="e#3106#3146#0" expanded="true" />
-            <element signature="e#4023#4070#0" expanded="true" />
+            <element signature="e#2948#2988#0" expanded="true" />
+            <element signature="e#3100#3140#0" expanded="true" />
+            <element signature="e#3293#3333#0" expanded="true" />
+            <element signature="e#4426#4473#0" expanded="true" />
           </folding>
         </state>
       </provider>
